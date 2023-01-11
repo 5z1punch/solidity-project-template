@@ -1,5 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "hardhat-tracer"
 
 import { config as dotenvConfig } from "dotenv";
 import { resolve } from "path";
@@ -18,20 +19,21 @@ const ACCT2_PTK: string | undefined = process.env.ACCT2_PTK;
 
 const blockNumber: number| undefined = process.env.FORK_BLOCK ? Number(process.env.FORK_BLOCK) : undefined;
 // console.log(mainnetRPC);
-
+console.log("forking on block number:", blockNumber? blockNumber: "latest");
+const init_balance = 1e18.toString();
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
       chainId: 1,
-      gas: 12000000,
+      gas: "auto",
       blockGasLimit: 0x1fffffffffffff,
       allowUnlimitedContractSize: true,
       forking: {
         url: mainnetRPC,
         blockNumber: blockNumber
       },
-      accounts: [{privateKey: ACCT1_PTK!, balance: 1e18.toString()}, {privateKey: ACCT2_PTK!, balance: 1e18.toString()}]
+      accounts: [{privateKey: ACCT1_PTK!, balance: init_balance}, {privateKey: ACCT2_PTK!, balance: init_balance}]
     },
     local:{
       chainId: 1,

@@ -11,3 +11,13 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.ts
 ```
+
+# foundry
+
+## pull foundry libs
+git submodule update --init --recursive
+
+## versions
+version lib/forge-std  v1.3.0
+
+if you cant run forge commands successfully, run `foundryup` to update.

@@ -9,3 +9,13 @@ typechain-types
 cache
 artifacts
 
+# foundry
+# Compiler files
+# cache/
+forge-cache/
+out/
+
+# Ignores development broadcast logs
+!/broadcast
+/broadcast/*
+/broadcast/*/31337/

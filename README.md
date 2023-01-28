@@ -1,4 +1,4 @@
-git clone --depth 1 --recurse-submodules --shallow-submodules ${git_repo}
+git clone --depth 1 --recurse-submodules --shallow-submodules ${git_repo} ${dir_name}
 
 # Sample Hardhat Project
 

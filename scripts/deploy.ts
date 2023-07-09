@@ -1,3 +1,4 @@
+// import "@nomicfoundation/hardhat-toolbox"; // uncomment this line, if ethers import below throws an error
 import { ethers } from "hardhat";
 
 async function main() {
